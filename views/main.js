@@ -1,7 +1,7 @@
 var html = require('choo/html')
 const DragDrop = require('../drag-drop-component')
 
-var TITLE = '🚂🚋🚋'
+var TITLE = 'Pokemon savefile to Showdown converter'
 
 module.exports = view
 

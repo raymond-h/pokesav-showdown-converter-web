@@ -7,7 +7,11 @@
     "inspect": "bankai inspect index.js",
     "start": "bankai start --address=0.0.0.0 -w true index.js",
     "test": "standard && test-deps",
-    "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons"
+    "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": ">=7.9.0 <8.0.0"
   },
   "dependencies": {
     "choo": "^6.0.0-4",
@@ -16,6 +20,7 @@
     "choo-service-worker": "^2.1.6",
     "dedent": "^0.7.0",
     "drag-drop": "^2.13.2",
+    "http-server": "^0.10.0",
     "nanocomponent": "^6.0.0-1",
     "pokesav-gba": "^1.0.1",
     "tachyons": "^4.7.4"
