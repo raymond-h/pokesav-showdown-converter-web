@@ -26,5 +26,9 @@
     "pokesav-gba": "^1.0.1",
     "standard": "^10.0.2",
     "tachyons": "^4.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raymond-h/pokesav-showdown-converter-web"
   }
 }
