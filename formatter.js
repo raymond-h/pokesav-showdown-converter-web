@@ -41,7 +41,7 @@ const moves = moves => moves.map(move => `- ${move.name}`).join('\n')
 
 const gender = pkmn =>
   (pkmn.gender == null) ? '' : (
-    (pkmn.gender === 'female' ? ' F' : ' M')
+    (pkmn.gender === 'female' ? ' (F)' : ' (M)')
   )
 
 const titleize = s => s[0].toUpperCase() + s.substr(1)
