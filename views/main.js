@@ -12,9 +12,9 @@ function view (state, emit) {
     emit(state.events.DOMTITLECHANGE, TITLE)
   }
 
-  dragDrop.onFiles = function(files) {
-    console.log('Dragged files:', files)
-    emit('new-savefile', files[0])
+  dragDrop.onFiles = function(file) {
+    console.log('Dragged file:', file)
+    emit('new-savefile', file)
   }
 
   return html`

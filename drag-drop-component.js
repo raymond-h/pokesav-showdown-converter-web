@@ -1,19 +1,25 @@
 const Nanocomponent = require('nanocomponent')
 const html = require('choo/html')
-const dragDrop = require('drag-drop/buffer')
+const blobToBuffer = require('blob-to-buffer')
 
 class DragDrop extends Nanocomponent {
-  beforerender(el) {
-    dragDrop(el, this.onFiles)
-  }
-
   update(onFiles) {
     return false
   }
 
   createElement() {
-    return html`<div class="ba pa2">
-    	Drag savefile here!
+    const onChange = ev => {
+      blobToBuffer(ev.target.files[0], (err, buf) => {
+        if(err != null) {
+          return console.error(err);
+        }
+
+        this.onFiles(buf);
+      });
+    };
+
+    return html`<div class="w-100 ba pa2">
+      <input class="w-100" type="file" onchange=${onChange} />
     </div>`;
   }
 }
