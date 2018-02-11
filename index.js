@@ -1,7 +1,10 @@
 var css = require('sheetify')
 var choo = require('choo')
-const pokesavGba = require('pokesav-gba')
-const formatter = require('./formatter')
+const converterGba = require('./converter-gba')
+
+function convert(file) {
+  return converterGba.convert(file)
+}
 
 css('tachyons')
 
@@ -17,8 +20,7 @@ app.use(function filesStore(state, emitter) {
   state.output = 'output\ngoes\nhere'
 
   emitter.on('new-savefile', file => {
-    const save = new pokesavGba.Savefile(file)
-    state.output = formatter.output(save.current)
+    state.output = convert(file)
     console.log(state.output)
     emitter.emit('render')
   })

@@ -1,3 +1,4 @@
+const pokesavGba = require('pokesav-gba')
 const dedent = require('dedent');
 
 function output(gameSave) {
@@ -48,7 +49,13 @@ const titleize = s => s[0].toUpperCase() + s.substr(1)
 
 const nature = pkmn => (pkmn.nature == null) ? 'Naughty' : titleize(pkmn.nature)
 
+function convert(file) {
+  const save = new pokesavGba.Savefile(file)
+  return output(save.current)
+}
+
 module.exports = {
+  convert,
   output, pokemon, item,
   stats, moves, gender,
   nature
