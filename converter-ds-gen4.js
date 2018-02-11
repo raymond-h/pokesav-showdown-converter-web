@@ -2,6 +2,7 @@ const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4');
 const dedent = require('dedent');
 
 const abilities = require('./data-gen4/abilities');
+const items = require('./data-gen4/items');
 
 function output(current) {
   return dedent`
@@ -32,7 +33,7 @@ const statNames = {
   specialAttack: 'SAtk', specialDefense: 'SDef'
 }
 
-const item = item => (item !== 0) ? ` @ ID #${item}` : ''
+const item = item => (item !== 0) ? ` @ ${items[item]}` : ''
 
 const stats = stats => {
   const statsStrs = Object.keys(statNames).map(stat => `${stats[stat]} ${statNames[stat]}`)
