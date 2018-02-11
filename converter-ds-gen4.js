@@ -1,6 +1,8 @@
 const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4');
 const dedent = require('dedent');
 
+const abilities = require('./data-gen4/abilities');
+
 function output(current) {
   return dedent`
     === ${current.trainerName}'s team ===
@@ -12,7 +14,7 @@ function output(current) {
 function pokemon(gameSave, pkmn) {
   return dedent`
     ${pkmn.base.blockC.nickname} (ID #${pkmn.base.blockA.nationalPokedexId})${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
-    Ability: ID #${pkmn.base.blockA.ability}
+    Ability: ${abilities[pkmn.base.blockA.ability]}
     Level: ${pkmn.battleStats.level}
     Shiny: ${pkmn.base.isShiny ? 'Yes' : 'No'}
     Happiness: ${pkmn.base.blockA.friendship}
