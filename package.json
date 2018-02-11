@@ -24,7 +24,7 @@
     "dedent": "^0.7.0",
     "http-server": "^0.10.0",
     "nanocomponent": "^6.0.0-1",
-    "pokesav-ds-gen4": "file:../pokesav-ds",
+    "pokesav-ds-gen4": "file:../pokesav-ds-gen4",
     "pokesav-gba": "^1.0.1",
     "standard": "^10.0.2",
     "tachyons": "^4.7.4"
