@@ -70,7 +70,10 @@ function convert(file) {
     return null;
   }
 
-  return output(data.generalBlockCurrent);
+  return {
+    output: output(data.generalBlockCurrent),
+    signature: data.generalBlockCurrent.trainerCardSignature
+  };
 }
 
 module.exports = { convert };

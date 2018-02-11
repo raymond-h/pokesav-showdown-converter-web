@@ -1,11 +1,13 @@
 var html = require('choo/html')
 const DragDrop = require('../drag-drop-component')
+const TrainerCardSignature = require('../trainer-card-signature-component')
 
 var TITLE = 'Pokemon savefile to Showdown converter'
 
 module.exports = view
 
 const dragDrop = new DragDrop()
+const trainerCardSignature = new TrainerCardSignature()
 
 function view (state, emit) {
   if (state.title !== TITLE) {
@@ -25,6 +27,7 @@ function view (state, emit) {
         </h1>
         <div class="fl w-30 pa2">
           ${ dragDrop.render() }
+          ${ trainerCardSignature.render(state.trainerCardSignature) }
         </div>
         <div class="fl w-70 pa2">
           <textarea class="db w-100 h5 ba pa2 ma0">

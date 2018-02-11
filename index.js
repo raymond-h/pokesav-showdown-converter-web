@@ -4,7 +4,7 @@ const converterGba = require('./converter-gba')
 const converterDsGen4 = require('./converter-ds-gen4')
 
 function convert(file) {
-  return converterDsGen4.convert(file) || converterGba.convert(file)
+  return converterDsGen4.convert(file) || { output: converterGba.convert(file) }
 }
 
 css('tachyons')
@@ -21,7 +21,9 @@ app.use(function filesStore(state, emitter) {
   state.output = 'output\ngoes\nhere'
 
   emitter.on('new-savefile', file => {
-    state.output = convert(file)
+    const result = convert(file)
+    state.output = result.output
+    state.trainerCardSignature = result.signature
     console.log(state.output)
     emitter.emit('render')
   })
