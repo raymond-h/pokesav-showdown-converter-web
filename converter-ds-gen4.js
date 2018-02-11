@@ -4,6 +4,7 @@ const dedent = require('dedent');
 const pokemonData = require('./data-gen4/pokemon');
 const abilities = require('./data-gen4/abilities');
 const items = require('./data-gen4/items');
+const movesData = require('./data-gen4/moves');
 
 function output(current) {
   return dedent`
@@ -45,7 +46,7 @@ const stats = stats => {
 const moves = moves =>
   moves
     .filter(move => move !== 0)
-    .map(move => `- ID #${move}`)
+    .map(move => `- ${movesData[move]}`)
     .join('\n')
 
 const gender = pkmn =>
