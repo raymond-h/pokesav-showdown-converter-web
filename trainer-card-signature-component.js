@@ -2,7 +2,11 @@ const Nanocomponent = require('nanocomponent')
 const html = require('choo/html')
 
 function renderSignature(canvasElem, signature) {
-  if(canvasElem == null || signature == null) {
+  if(canvasElem == null || canvasElem.style == null) {
+    return
+  }
+
+  if(signature == null) {
     canvasElem.style.display = 'none';
     return
   }
