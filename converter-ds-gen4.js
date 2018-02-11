@@ -1,6 +1,7 @@
 const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4');
 const dedent = require('dedent');
 
+const pokemonData = require('./data-gen4/pokemon');
 const abilities = require('./data-gen4/abilities');
 const items = require('./data-gen4/items');
 
@@ -14,7 +15,7 @@ function output(current) {
 
 function pokemon(gameSave, pkmn) {
   return dedent`
-    ${pkmn.base.blockC.nickname} (ID #${pkmn.base.blockA.nationalPokedexId})${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
+    ${pkmn.base.blockC.nickname} (${pokemonData[pkmn.base.blockA.nationalPokedexId]})${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
     Ability: ${abilities[pkmn.base.blockA.ability]}
     Level: ${pkmn.battleStats.level}
     Shiny: ${pkmn.base.isShiny ? 'Yes' : 'No'}
