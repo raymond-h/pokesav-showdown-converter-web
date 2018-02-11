@@ -1,9 +1,10 @@
 var css = require('sheetify')
 var choo = require('choo')
 const converterGba = require('./converter-gba')
+const converterDsGen4 = require('./converter-ds-gen4')
 
 function convert(file) {
-  return converterGba.convert(file)
+  return converterDsGen4.convert(file) || converterGba.convert(file)
 }
 
 css('tachyons')
