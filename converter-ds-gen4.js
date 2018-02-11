@@ -15,8 +15,12 @@ function output(current) {
 }
 
 function pokemon(gameSave, pkmn) {
+  const name = pkmn.base.blockB.isNicknamed ?
+    `${pkmn.base.blockC.nickname} (${pokemonData[pkmn.base.blockA.nationalPokedexId]})` :
+    pokemonData[pkmn.base.blockA.nationalPokedexId]
+
   return dedent`
-    ${pkmn.base.blockC.nickname} (${pokemonData[pkmn.base.blockA.nationalPokedexId]})${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
+    ${name}${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
     Ability: ${abilities[pkmn.base.blockA.ability]}
     Level: ${pkmn.battleStats.level}
     Shiny: ${pkmn.base.isShiny ? 'Yes' : 'No'}
