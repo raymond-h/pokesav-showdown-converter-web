@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "bankai build index.js",
+    "build": "bankai build index.js && cp sw.js dist/",
     "inspect": "bankai inspect index.js",
     "start": "bankai start --address=0.0.0.0 -w true index.js",
     "test": "standard && test-deps",
