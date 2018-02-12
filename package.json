@@ -8,10 +8,7 @@
     "start": "bankai start --address=0.0.0.0 -w true index.js",
     "test": "standard && test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons",
-    "heroku-postbuild": "npm run build"
-  },
-  "engines": {
-    "node": ">=7.9.0 <8.0.0"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "bankai": "^9.0.0-1",
@@ -22,7 +19,6 @@
     "choo-reload": "^1.1.1",
     "choo-service-worker": "^2.1.6",
     "dedent": "^0.7.0",
-    "http-server": "^0.10.0",
     "nanocomponent": "^6.0.0-1",
     "pokesav-ds-gen4": "file:../pokesav-ds-gen4",
     "pokesav-gba": "^1.0.1",
