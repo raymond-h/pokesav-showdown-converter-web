@@ -6,7 +6,8 @@ var TITLE = 'Pokemon savefile to Showdown converter'
 
 module.exports = view
 
-const dragDrop = new DragDrop()
+const dragDrop = new DragDrop('Savefile')
+const dragDropShowdownPokedex = new DragDrop('Showdown pokedex.js file (optional)')
 const trainerCardSignature = new TrainerCardSignature()
 
 function view (state, emit) {
@@ -19,6 +20,11 @@ function view (state, emit) {
     emit('new-savefile', file)
   }
 
+  dragDropShowdownPokedex.onFiles = function(file) {
+    console.log('Dragged Showdown file:', file)
+    emit('new-showdown-file', file)
+  }
+
   return html`
     <body class="sans-serif">
       <div class="mw8 center">
@@ -27,6 +33,7 @@ function view (state, emit) {
         </h1>
         <div class="fl w-30 pa2">
           ${ dragDrop.render() }
+          ${ dragDropShowdownPokedex.render() }
           ${ trainerCardSignature.render(state.trainerCardSignature) }
         </div>
         <div class="fl w-70 pa2">
