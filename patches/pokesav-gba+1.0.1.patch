@@ -1,0 +1,11 @@
+patch-package
+--- a/node_modules/pokesav-gba/lib/pokemon.js
++++ b/node_modules/pokesav-gba/lib/pokemon.js
+@@ -178,6 +178,7 @@
+         }
+       }
+       baseData = pkmnBaseData[this.speciesIndex];
++      this.abilityIndex = this.ability;
+       return this.ability = (_ref1 = baseData.ability) != null ? _ref1 : baseData.abilities[this.ability];
+     };
+ 

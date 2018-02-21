@@ -8,7 +8,8 @@
     "start": "bankai start --address=0.0.0.0 -w true index.js",
     "test": "standard && test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "prepare": "patch-package"
   },
   "dependencies": {
     "bankai": "^9.0.0-1",
@@ -28,5 +29,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/raymond-h/pokesav-showdown-converter-web"
+  },
+  "devDependencies": {
+    "patch-package": "^5.1.1"
   }
 }
