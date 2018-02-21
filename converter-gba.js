@@ -14,7 +14,7 @@ function output(gameSave) {
 function pokemon(gameSave, pkmn) {
   return dedent`
     ${pkmn.name} (${pkmn.species})${gender(pkmn)}${item(pkmn.heldItem)}
-    Ability: ${pkmn.ability}
+    Ability: ${ability(pkmn)}
     Level: ${pkmn.level}
     Shiny: ${pkmn.shiny ? 'Yes' : 'No'}
     Happiness: ${pkmn.friendship}
@@ -33,6 +33,8 @@ const statNames = {
 }
 
 const item = item => (item != null) ? ` @ ${item}` : ''
+
+const ability = pkmn => /cacophony/i.test(pkmn.ability) ? 'Soundproof' : pkmn.ability
 
 const stats = stats => {
   const statsStrs = Object.keys(statNames).map(stat => `${stats[stat]} ${statNames[stat]}`)
