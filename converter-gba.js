@@ -42,7 +42,9 @@ const stats = stats => {
   return statsStrs.join(' / ')
 }
 
-const moves = moves => moves.map(move => `- ${move.name}`).join('\n')
+const faintAttackRegex = /faint attack/i
+
+const moves = moves => moves.map(move => `- ${faintAttackRegex.test(move.name) ? 'Feint Attack' : move.name}`).join('\n')
 
 const gender = pkmn =>
   (pkmn.gender == null) ? '' : (
