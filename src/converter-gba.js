@@ -1,7 +1,7 @@
 const pokesavGba = require('pokesav-gba')
 const dedent = require('dedent');
 
-const indexToNatDex = require('./data-gen3/pokemon-index-to-nat-dex-num');
+const indexToNatDex = require('../data-gen3/pokemon-index-to-nat-dex-num');
 
 function output(gameSave) {
   return dedent`

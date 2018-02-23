@@ -1,10 +1,10 @@
 const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4');
 const dedent = require('dedent');
 
-const pokemonData = require('./data-gen4/pokemon');
-const abilities = require('./data-gen4/abilities');
-const items = require('./data-gen4/items');
-const movesData = require('./data-gen4/moves');
+const pokemonData = require('../data-gen4/pokemon');
+const abilities = require('../data-gen4/abilities');
+const items = require('../data-gen4/items');
+const movesData = require('../data-gen4/moves');
 
 function output(current) {
   return dedent`
