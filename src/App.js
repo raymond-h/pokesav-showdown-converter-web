@@ -5,7 +5,7 @@ import TrainerCardSignature from './TrainerCardSignature'
 import convert from './converter'
 
 export default class App extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       savefile: null,
@@ -13,15 +13,15 @@ export default class App extends Component {
     }
   }
 
-  handleNewSavefile(buf) {
+  handleNewSavefile (buf) {
     this.setState({ savefile: buf })
   }
 
-  handleNewShowdownFile(buf) {
+  handleNewShowdownFile (buf) {
     this.setState({ showdownFile: buf })
   }
 
-  render() {
+  render () {
     const result = (this.state.savefile != null)
       ? convert(Buffer.from(this.state.savefile), this.state.showdownFile)
       : null
@@ -29,17 +29,17 @@ export default class App extends Component {
     const output = (result != null) ? result.output : 'output\ngoes\nhere'
     const signature = (result != null) ? result.signature : null
 
-    return <div className="mw8 center sans-serif">
-      <h1 className="f-headline tc w-100">
+    return <div className='mw8 center sans-serif'>
+      <h1 className='f-headline tc w-100'>
         Pokemon savefile to Showdown converter
       </h1>
-      <div className="fl w-30 pa2">
-        <FileInput title="Savefile" onFile={this.handleNewSavefile.bind(this)}></FileInput>
-        <FileInput title="Showdown pokedex.js file (optional)" onFile={this.handleNewShowdownFile.bind(this)}></FileInput>
+      <div className='fl w-30 pa2'>
+        <FileInput title='Savefile' onFile={this.handleNewSavefile.bind(this)} />
+        <FileInput title='Showdown pokedex.js file (optional)' onFile={this.handleNewShowdownFile.bind(this)} />
         {signature && <TrainerCardSignature signature={signature} />}
       </div>
-      <div className="fl w-70 pa2">
-        <textarea className="db w-100 h5 ba pa2 ma0" value={output} readOnly></textarea>
+      <div className='fl w-70 pa2'>
+        <textarea className='db w-100 h5 ba pa2 ma0' value={output} readOnly />
       </div>
     </div>
   }

@@ -1,17 +1,17 @@
 const pokesavGba = require('pokesav-gba')
-const dedent = require('dedent');
+const dedent = require('dedent')
 
-const indexToNatDex = require('../data-gen3/pokemon-index-to-nat-dex-num');
+const indexToNatDex = require('../data-gen3/pokemon-index-to-nat-dex-num')
 
-function output(gameSave) {
+function output (gameSave) {
   return dedent`
     === ${gameSave.name}'s team ===
 
-    ${ gameSave.team.map( pkmn => pokemon(gameSave, pkmn) ).join('\n\n') }
+    ${gameSave.team.map(pkmn => pokemon(gameSave, pkmn)).join('\n\n')}
   `
 }
 
-function pokemon(gameSave, pkmn) {
+function pokemon (gameSave, pkmn) {
   return dedent`
     ${pkmn.name} (${pkmn.species})${gender(pkmn)}${item(pkmn.heldItem)}
     Ability: ${ability(pkmn)}
@@ -27,9 +27,11 @@ function pokemon(gameSave, pkmn) {
 
 const statNames = {
   hp: 'HP',
-  atk: 'Atk', def: 'Def',
+  atk: 'Atk',
+  def: 'Def',
   spd: 'Spd',
-  spAtk: 'SAtk', spDef: 'SDef'
+  spAtk: 'SAtk',
+  spDef: 'SDef'
 }
 
 const item = item => (item != null) ? ` @ ${item}` : ''
@@ -55,26 +57,25 @@ const titleize = s => s[0].toUpperCase() + s.substr(1)
 
 const nature = pkmn => (pkmn.nature == null) ? 'Naughty' : titleize(pkmn.nature)
 
-function evaluateShowdownPokedexData(buf) {
-  let module = { exports: {} };
-  let exports = module.exports;
+function evaluateShowdownPokedexData (buf) {
+  let module = { exports: {} }
+  let exports = module.exports // eslint-disable-line no-unused-vars
 
-  eval(buf.toString('utf8'));
+  eval(buf.toString('utf8')) // eslint-disable-line no-eval
 
-  return module.exports;
+  return module.exports
 }
 
-function convert(file, options) {
+function convert (file, options) {
   options = options || {}
 
   let showdownPokedexData = null
-  if(options.showdownPokedexData != null) {
+  if (options.showdownPokedexData != null) {
     const evalResult = evaluateShowdownPokedexData(options.showdownPokedexData)
 
-    if(Object.keys(evalResult).length === 1) {
+    if (Object.keys(evalResult).length === 1) {
       showdownPokedexData = evalResult[Object.keys(evalResult)[0]]
-    }
-    else {
+    } else {
       showdownPokedexData = evalResult
     }
 
@@ -83,7 +84,7 @@ function convert(file, options) {
 
   const save = new pokesavGba.Savefile(file)
 
-  if(showdownPokedexData != null) {
+  if (showdownPokedexData != null) {
     save.current.team.forEach(pkmn => {
       const natDexNum = indexToNatDex[pkmn.speciesIndex]
       pkmn.nationalDexNumber = natDexNum
@@ -97,7 +98,11 @@ function convert(file, options) {
 
 module.exports = {
   convert,
-  output, pokemon, item,
-  stats, moves, gender,
+  output,
+  pokemon,
+  item,
+  stats,
+  moves,
+  gender,
   nature
 }

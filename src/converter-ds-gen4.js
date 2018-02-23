@@ -1,23 +1,23 @@
-const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4');
-const dedent = require('dedent');
+const { PokesavDsGen4, fromBuffer } = require('pokesav-ds-gen4')
+const dedent = require('dedent')
 
-const pokemonData = require('../data-gen4/pokemon');
-const abilities = require('../data-gen4/abilities');
-const items = require('../data-gen4/items');
-const movesData = require('../data-gen4/moves');
+const pokemonData = require('../data-gen4/pokemon')
+const abilities = require('../data-gen4/abilities')
+const items = require('../data-gen4/items')
+const movesData = require('../data-gen4/moves')
 
-function output(current) {
+function output (current) {
   return dedent`
     === ${current.trainerName}'s team ===
 
-    ${ current.partyPokemon.map(pkmn => pokemon(current, pkmn)).join('\n\n') }
+    ${current.partyPokemon.map(pkmn => pokemon(current, pkmn)).join('\n\n')}
   `
 }
 
-function pokemon(gameSave, pkmn) {
-  const name = pkmn.base.blockB.isNicknamed ?
-    `${pkmn.base.blockC.nickname} (${pokemonData[pkmn.base.blockA.nationalPokedexId]})` :
-    pokemonData[pkmn.base.blockA.nationalPokedexId]
+function pokemon (gameSave, pkmn) {
+  const name = pkmn.base.blockB.isNicknamed
+    ? `${pkmn.base.blockC.nickname} (${pokemonData[pkmn.base.blockA.nationalPokedexId]})`
+    : pokemonData[pkmn.base.blockA.nationalPokedexId]
 
   return dedent`
     ${name}${gender(pkmn)}${item(pkmn.base.blockA.heldItem)}
@@ -34,9 +34,11 @@ function pokemon(gameSave, pkmn) {
 
 const statNames = {
   hp: 'HP',
-  attack: 'Atk', defense: 'Def',
+  attack: 'Atk',
+  defense: 'Def',
   speed: 'Spd',
-  specialAttack: 'SAtk', specialDefense: 'SDef'
+  specialAttack: 'SAtk',
+  specialDefense: 'SDef'
 }
 
 const item = item => (item !== 0) ? ` @ ${items[item]}` : ''
@@ -60,20 +62,20 @@ const gender = pkmn =>
 
 const titleize = s => s[0].toUpperCase() + s.substr(1).toLowerCase()
 
-function convert(file) {
-  if(file.length < 512 * 1024) {
+function convert (file) {
+  if (file.length < 512 * 1024) {
     return null
   }
 
-  const data = fromBuffer(file);
-  if(data.game === PokesavDsGen4.Game.UNKNOWN) {
-    return null;
+  const data = fromBuffer(file)
+  if (data.game === PokesavDsGen4.Game.UNKNOWN) {
+    return null
   }
 
   return {
     output: output(data.generalBlockCurrent),
     signature: data.generalBlockCurrent.trainerCardSignature
-  };
+  }
 }
 
-module.exports = { convert };
+module.exports = { convert }
