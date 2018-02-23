@@ -1,9 +1,6 @@
-import React from 'react'
-import Nanocomponent from 'nanocomponent'
-import toReact from 'nanocomponent-adapters/react'
-import html from 'bel'
+import React, { Component } from 'react'
 
-function renderSignature(canvasElem, signature) {
+export function renderSignature(canvasElem, signature) {
   if(canvasElem == null || canvasElem.style == null) {
     return
   }
@@ -34,32 +31,26 @@ function renderSignature(canvasElem, signature) {
   ctx.putImageData(data, 0, 0);
 }
 
-class TrainerCardSignature extends Nanocomponent {
-  constructor() {
-    super()
+export default class TrainerCardSignature extends Component {
+  constructor(props) {
+    super(props)
     this.signature = null
   }
 
-  load(elem) {
-    renderSignature(elem, this.signature);
+  componentDidMount() {
+    renderSignature(this.canvas, this.props.signature)
   }
 
-  update({ signature }) {
-    this.signature = signature
-    renderSignature(this.element, signature)
-    return false
+  componentDidUpdate() {
+    renderSignature(this.canvas, this.props.signature)
   }
 
-  createElement({ signature }) {
-    this.signature = signature
-    const elem = html`<canvas
-      class="ba"
+  render() {
+    return <canvas
+      ref={canvas => this.canvas = canvas}
+      className="ba"
       width="192"
       height="64">
-    </canvas>`;
-    renderSignature(elem, signature);
-    return elem;
+    </canvas>
   }
 }
-
-export default toReact(TrainerCardSignature, React)
