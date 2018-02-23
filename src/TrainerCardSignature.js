@@ -1,5 +1,7 @@
-const Nanocomponent = require('nanocomponent')
-const html = require('choo/html')
+import React from 'react'
+import Nanocomponent from 'nanocomponent'
+import toReact from 'nanocomponent-adapters/react'
+import html from 'bel'
 
 function renderSignature(canvasElem, signature) {
   if(canvasElem == null || canvasElem.style == null) {
@@ -13,7 +15,6 @@ function renderSignature(canvasElem, signature) {
 
   canvasElem.style.display = 'inline-block';
 
-  console.log('TIME TO DRAW SIGNATURE', signature, 'ON ELEMENT', canvasElem);
   const ctx = canvasElem.getContext('2d');
 
   const data = ctx.createImageData(192, 64);
@@ -43,13 +44,13 @@ class TrainerCardSignature extends Nanocomponent {
     renderSignature(elem, this.signature);
   }
 
-  update(signature) {
+  update({ signature }) {
     this.signature = signature
     renderSignature(this.element, signature)
     return false
   }
 
-  createElement(signature) {
+  createElement({ signature }) {
     this.signature = signature
     const elem = html`<canvas
       class="ba"
@@ -61,4 +62,4 @@ class TrainerCardSignature extends Nanocomponent {
   }
 }
 
-module.exports = TrainerCardSignature
+export default toReact(TrainerCardSignature, React)

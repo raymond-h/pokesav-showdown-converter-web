@@ -11,9 +11,11 @@
     "prepare": "patch-package"
   },
   "dependencies": {
+    "bel": "^5.1.6",
     "blob-to-buffer": "^1.2.6",
     "dedent": "^0.7.0",
     "nanocomponent": "^6.0.0-1",
+    "nanocomponent-adapters": "^3.0.0",
     "pokesav-ds-gen4": "file:../pokesav-ds-gen4",
     "pokesav-gba": "^1.0.1",
     "react": "^16.2.0",
