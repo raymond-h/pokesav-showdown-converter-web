@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "parcel build --public-url / ./index.html",
-    "start": "parcel -p 8080 ./index.html",
+    "build": "parcel build --public-url / ./src/index.html",
+    "start": "parcel -p 8080 ./src/index.html",
     "test": "standard && test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons",
     "deploy": "./deploy.sh",
