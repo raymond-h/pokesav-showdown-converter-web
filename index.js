@@ -1,12 +1,10 @@
-var css = require('sheetify')
 var choo = require('choo')
 const convert = require('./converter')
 
-css('tachyons')
+require('tachyons')
 
 var app = choo()
 if (process.env.NODE_ENV !== 'production') {
-  app.use(require('choo-reload')())
   app.use(require('choo-devtools')())
   app.use(require('choo-log')())
 }

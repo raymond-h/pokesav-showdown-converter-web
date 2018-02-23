@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "bankai build index.js && cp sw.js dist/",
-    "inspect": "bankai inspect index.js",
-    "start": "bankai start --address=0.0.0.0 -w true index.js",
+    "build": "parcel build --public-url / ./index.html",
+    "start": "parcel -p 8080 ./index.html",
     "test": "standard && test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons",
     "deploy": "./deploy.sh",
@@ -17,7 +16,6 @@
     "choo": "^6.0.0-4",
     "choo-devtools": "^1.3.1",
     "choo-log": "^7.2.1",
-    "choo-reload": "^1.1.1",
     "choo-service-worker": "^2.1.6",
     "dedent": "^0.7.0",
     "nanocomponent": "^6.0.0-1",
@@ -31,6 +29,7 @@
     "url": "https://github.com/raymond-h/pokesav-showdown-converter-web"
   },
   "devDependencies": {
+    "parcel-bundler": "^1.6.2",
     "patch-package": "^5.1.1"
   }
 }

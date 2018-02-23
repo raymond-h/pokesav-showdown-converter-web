@@ -37,9 +37,7 @@ function view (state, emit) {
           ${ trainerCardSignature.render(state.trainerCardSignature) }
         </div>
         <div class="fl w-70 pa2">
-          <textarea class="db w-100 h5 ba pa2 ma0">
-            ${ state.output }
-          </textarea>
+          <pre class="db w-100 h5 ba pa2 ma0 pre">${ state.output }</pre>
         </div>
       </div>
     </body>
