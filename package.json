@@ -13,6 +13,7 @@
   "dependencies": {
     "bel": "^5.1.6",
     "blob-to-buffer": "^1.2.6",
+    "clipboard-polyfill": "^2.7.0",
     "dedent": "^0.7.0",
     "nanocomponent": "^6.0.0-1",
     "nanocomponent-adapters": "^3.0.0",
@@ -28,6 +29,7 @@
     "url": "https://github.com/raymond-h/pokesav-showdown-converter-web"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "parcel-bundler": "^1.12.3",
     "patch-package": "^5.1.1"

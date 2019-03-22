@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import FileInput from './FileInput'
 import TrainerCardSignature from './TrainerCardSignature'
+import ClipboardCopy from './ClipboardCopy'
 import convert from './converter'
 
 export default class App extends Component {
@@ -38,8 +39,9 @@ export default class App extends Component {
         <FileInput title='Showdown pokedex.js file (optional)' onFile={this.handleNewShowdownFile.bind(this)} />
         {signature && <TrainerCardSignature signature={signature} />}
       </div>
-      <div className='fl w-70 pa2'>
-        <textarea className='db w-100 h5 ba pa2 ma0' value={output} readOnly />
+      <div className='fl w-70 pa2 flex flex-column items-end'>
+        <textarea className='db w-100 h5 ba pa2 ma0 mb2' value={output} readOnly />
+        <ClipboardCopy className='mb2' value={output} />
       </div>
     </div>
   }
