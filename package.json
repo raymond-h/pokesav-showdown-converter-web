@@ -19,7 +19,7 @@
     "pokesav-ds-gen4": "file:../pokesav-ds-gen4",
     "pokesav-gba": "^1.0.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.5",
     "standard": "^10.0.2",
     "tachyons": "^4.7.4"
   },
