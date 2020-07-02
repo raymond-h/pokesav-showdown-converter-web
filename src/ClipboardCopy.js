@@ -2,13 +2,13 @@ import React from 'react'
 import * as clipboard from 'clipboard-polyfill'
 
 class ClipboardCopy extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = { copiedRecently: false }
   }
 
-  handleClick() {
-    if(!this.state.copiedRecently) {
+  handleClick () {
+    if (!this.state.copiedRecently) {
       clipboard.writeText(this.props.value)
       .then(() => {
         this.setState({ copiedRecently: true })
@@ -22,7 +22,7 @@ class ClipboardCopy extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return <button onClick={this.handleClick.bind(this)}>
       {this.state.copiedRecently ? 'Copied!' : 'Copy'}
     </button>
