@@ -18,7 +18,7 @@ async function main () {
     })
   )
     .filter(ability => !Number.isNaN(ability.id))
-    .filter(ability => ['I', 'II', 'III', 'IV'].includes(ability.generation))
+    .filter(ability => ['I', 'II', 'III', 'IV', 'V'].includes(ability.generation))
 
   const abilitiesById = {}
   abilities.forEach(a => {
@@ -26,7 +26,7 @@ async function main () {
   })
 
   // console.log(abilitiesById);
-  console.log(JSON.stringify(abilitiesById))
+  console.log(JSON.stringify(abilitiesById, null, 2))
 }
 
 main().catch(err => console.error(err))

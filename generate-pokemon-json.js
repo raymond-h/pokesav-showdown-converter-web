@@ -23,7 +23,7 @@ async function main () {
   })
 
   // console.log(pokemonById);
-  console.log(JSON.stringify(pokemonById))
+  console.log(JSON.stringify(pokemonById, null, 2))
 }
 
 main().catch(err => console.error(err))

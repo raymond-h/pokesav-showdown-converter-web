@@ -12,11 +12,13 @@
   "dependencies": {
     "bel": "^5.1.6",
     "blob-to-buffer": "^1.2.6",
+    "cheerio": "^1.0.0-rc.11",
     "clipboard-polyfill": "^2.7.0",
     "dedent": "^0.7.0",
     "nanocomponent": "^6.0.0-1",
     "nanocomponent-adapters": "^3.0.0",
     "pokesav-ds-gen4": "github:raymond-h/pokesav-ds-gen4#3eb0f9ad00356283278fe57eadff880c118a47c6",
+    "pokesav-ds-gen5": "github:raymond-h/pokesav-ds-gen5#43fc11b30dc83ef086ce8646ed94a4f927c0ac0f",
     "pokesav-gba": "^1.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.8.5",

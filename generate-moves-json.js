@@ -13,12 +13,12 @@ async function main () {
       return {
         id: parseInt(tds.eq(0).text().trim(), 10),
         name: tds.eq(1).find('a').text().trim(),
-        generation: tds.eq(8).text().trim()
+        generation: tds.eq(7).text().trim()
       }
     })
   )
     .filter(move => !Number.isNaN(move.id))
-    .filter(move => ['I', 'II', 'III', 'IV'].includes(move.generation))
+    .filter(move => ['I', 'II', 'III', 'IV', 'V'].includes(move.generation))
 
   const movesById = {}
   moves.forEach(a => {
@@ -26,7 +26,7 @@ async function main () {
   })
 
   // console.log(movesById);
-  console.log(JSON.stringify(movesById))
+  console.log(JSON.stringify(movesById, null, 2))
 }
 
 main().catch(err => console.error(err))
