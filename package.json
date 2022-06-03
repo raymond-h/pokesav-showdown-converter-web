@@ -6,7 +6,6 @@
     "build": "parcel build --public-url '.' ./src/index.html",
     "start": "parcel -p 8080 ./src/index.html",
     "test": "standard",
-    "deploy": "./deploy.sh",
     "prepare": "patch-package"
   },
   "dependencies": {
