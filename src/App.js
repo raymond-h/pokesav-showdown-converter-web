@@ -60,8 +60,8 @@ export default class App extends Component {
     const output = (result != null) ? result.output : ''
     const signature = (result != null) ? result.signature : null
 
-    return <div className='vh-100 w-100 flex items-center justify-center bg-near-black' onDrop={this.handleFileDrop.bind(this)} onDragOver={this.handleDragOver.bind(this)}>
-      <div className='bg-panel-color pt4 ph5 pb5 br2'>
+    return <div className='vh-100 w-100 flex items-center justify-center bg-dark-gray' onDrop={this.handleFileDrop.bind(this)} onDragOver={this.handleDragOver.bind(this)}>
+      <div className='bg-dark-blue pt4 ph5 pb5 br2'>
         <div className='mw9 center sans-serif moon-gray'>
           <h1 className='font-title tc w-100 fade-in'>
             Pokemon savefile to Showdown converter
@@ -74,7 +74,7 @@ export default class App extends Component {
               {signature && <div className='center pa4'><TrainerCardSignature signature={signature} /></div>}
             </div>
             <div className='fl w-60 pa2 flex flex-column items-end'>
-              <textarea className='db w-100 h-textarea ba pa2 ma0 mb2 bg-near-black moon-gray consolas non-resizable' value={output} readOnly placeholder='Output goes here' />
+              <textarea className='db w-100 h-textarea ba pa2 ma0 mb2 bg-dark-gray moon-gray consolas non-resizable' value={output} readOnly placeholder='Output goes here' />
               <ClipboardCopy className='mb2' value={output} />
             </div>
           </div>
