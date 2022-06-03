@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
+.bg-app {
+  background-image: url('./assets/tactile_noise.png');
+  background-size: 120px;
+}
+
 .bg-panel-color {
-  background-color: #171B2D
+  background-image: url('./assets/webb.png');
+  background-size: 40%;
+  background-blend-mode: multiply;
 }
 
 .text-color {

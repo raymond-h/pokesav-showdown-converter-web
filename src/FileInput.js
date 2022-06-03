@@ -17,7 +17,7 @@ const FileInput = props => {
     })
   }
 
-  return <div className='w-100 ba pa2 pb3 mb2 br2'>
+  return <div className='w-100 bg-white-10 shadow-1 pa2 pb3 mb2 br2'>
     {(props.title != null) && <p className='mt0 mb2 pa1'>{props.title}:</p>}
     <div className='flex flex-row'>
       <div className='pa1 flex items-center justify-center'>
