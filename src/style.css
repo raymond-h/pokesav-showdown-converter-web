@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
 .bg-panel-color {
-  background-color: #171B2D
+  background-image: url('./assets/webb.png');
+  background-size: 40%;
+  background-blend-mode: multiply;
 }
 
 .text-color {
@@ -10,8 +12,6 @@
 
 .font-title {
   font-family: 'Nunito', sans-serif;
-  font-size: 4rem;
-  font-weight: 200;
 }
 
 .font-body {
