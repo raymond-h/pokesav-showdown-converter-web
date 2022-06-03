@@ -24,34 +24,32 @@ export default class App extends Component {
   }
 
   handleFileDrop (ev) {
-    ev.preventDefault();
-    ev.stopPropagation();
+    ev.preventDefault()
+    ev.stopPropagation()
     if (ev.dataTransfer.items && ev.dataTransfer.items.length > 0 && ev.dataTransfer.items[0].kind === 'file') {
       const file = ev.dataTransfer.items[0].getAsFile()
       blobToBuffer(file, (err, buf) => {
         if (err != null) {
           return console.error(err)
         }
-  
+
         this.handleNewSavefile({ name: file.name, buffer: buf })
       })
-    }
-    else if (ev.dataTransfer.files) {
+    } else if (ev.dataTransfer.files) {
       const file = ev.dataTransfer.files[0]
       blobToBuffer(ev.dataTransfer.files[0], (err, buf) => {
         if (err != null) {
           return console.error(err)
         }
-  
+
         this.handleNewSavefile({ name: file.name, buffer: buf })
       })
     }
   }
-  
-  handleDragOver(ev) {
-    ev.preventDefault();
-    ev.stopPropagation();
 
+  handleDragOver (ev) {
+    ev.preventDefault()
+    ev.stopPropagation()
   }
 
   render () {
@@ -73,7 +71,7 @@ export default class App extends Component {
             <div className='fl pa2 w-40 flex flex-column'>
               <FileInput id='file-input-save' file={this.state.savefile} title='Savefile' onFile={this.handleNewSavefile.bind(this)} />
               <FileInput id='file-inpud-dex' file={this.state.showdownFile} title='Showdown pokedex.js file (optional)' onFile={this.handleNewShowdownFile.bind(this)} />
-            {signature && <div className='center pa4'><TrainerCardSignature signature={signature} /></div>}
+              {signature && <div className='center pa4'><TrainerCardSignature signature={signature} /></div>}
             </div>
             <div className='fl w-60 pa2 flex flex-column items-end'>
               <textarea className='db w-100 h-textarea ba pa2 ma0 mb2 bg-near-black moon-gray consolas non-resizable' value={output} readOnly placeholder='Output goes here' />
