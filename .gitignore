@@ -6,4 +6,4 @@ tmp/
 npm-debug.log*
 .DS_Store
 .env*
-.cache/
+.parcel-cache/
