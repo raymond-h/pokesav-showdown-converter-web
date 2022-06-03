@@ -7,19 +7,27 @@ const FileInput = props => {
       return props.onFile(null)
     }
 
-    blobToBuffer(ev.target.files[0], (err, buf) => {
+    const file = ev.target.files[0]
+    blobToBuffer(file, (err, buf) => {
       if (err != null) {
         return console.error(err)
       }
 
-      props.onFile(buf)
+      props.onFile({ name: file.name, buffer: buf })
     })
   }
 
-  return <div className='w-100 ba pa2 mb2'>
-    {(props.title != null) && <p className='b mt0 mb2'>{props.title}:</p>}
-
-    <input className='w-100' type='file' onChange={onChange} />
+  return <div className='w-100 ba pa2 pb3 mb2 br2'>
+    {(props.title != null) && <p className='mt0 mb2 pa1'>{props.title}:</p>}
+    <div className='flex flex-row'>
+      <div className='pa1 flex items-center justify-center'>
+        <label className='font-button bg-moon-gray text-color br2 ph3 pv1 hover-color' htmlFor={props.id}>
+          Upload
+        </label>
+      </div>
+      {(props.file != null) && <div className='flex items-center justify-center pa1 pl2'>{props.file.name}</div>}
+    </div>
+    <input id={props.id} className='dn' type='file' onChange={onChange} />
   </div>
 }
 

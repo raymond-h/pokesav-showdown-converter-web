@@ -23,7 +23,7 @@ class ClipboardCopy extends React.Component {
   }
 
   render () {
-    return <button onClick={this.handleClick.bind(this)}>
+    return <button className={'font-button bg-moon-gray text-color br2 w-copy pv1 b--transparent tc ' + (this.state.copiedRecently ? 'copy-animation' : 'hover-color')} onClick={this.handleClick.bind(this)}>
       {this.state.copiedRecently ? 'Copied!' : 'Copy'}
     </button>
   }

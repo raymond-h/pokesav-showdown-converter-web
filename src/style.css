@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+
+.bg-panel-color {
+  background-color: #171B2D
+}
+
+.text-color {
+  color: #171B2D
+}
+
+.font-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.font-body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.font-button {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.non-resizable {
+  resize: none;
+}
+
+.hover-color {
+  transition: ease-in 0.15s;
+}
+
+.hover-color:hover {
+  background-color: #C4EFFF;
+}
+
+.copy-animation {
+  animation: linear 0.45s copy;
+}
+
+@keyframes copy {
+  0% {
+    background-color: #C4EFFF;
+  }
+  4% {
+    background-color: #FFFFFF;
+    color: #2C74FF;
+  }
+  16% {
+    background-color: #FFFFFF;
+    color: #2C74FF;
+  }
+  50% {
+    background-color: #C4EFFF;
+  }
+  100% {
+    background-color: none;
+  }
+}
+
+.fade-in {
+  animation: linear 0.65s fadein;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  }
+  20% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.w-copy {
+  width: 5.5rem;
+}
+
+.h-textarea {
+  height: 22.5rem;
+}
