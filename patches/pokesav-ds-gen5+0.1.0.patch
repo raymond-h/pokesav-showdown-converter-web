@@ -1,0 +1,18 @@
+patch-package
+--- a/node_modules/pokesav-ds-gen5/lib/encryption-and-order.js
++++ b/node_modules/pokesav-ds-gen5/lib/encryption-and-order.js
+@@ -47,11 +47,13 @@ function shuffleBlocks(buf, order) {
+ }
+ 
+ function decryptPokemonBuffer(buf, orderNum, key) {
++  const PokesavDsGen5 = require('../formats-compiled/PokesavDsGen5');
++
+   const decryptedBuf = decryptBuffer(buf, key);
+   return shuffleBlocks(
+     decryptedBuf,
+     (typeof orderNum === 'number') ?
+-      require('../formats-compiled/PokesavDsGen5').PokemonInverseBlockOrder[orderNum] :
++      PokesavDsGen5.PokemonInverseBlockOrder[orderNum] :
+       orderNum
+   );
+ }
